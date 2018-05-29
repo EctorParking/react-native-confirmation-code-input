@@ -23,6 +23,7 @@ export default class ConfirmationCodeInput extends Component {
     containerStyle: viewPropTypes.style,
     onFulfill: PropTypes.func,
     keyboardType: PropTypes.string,
+    testIDPrefix: PropTypes.string,
   };
   
   static defaultProps = {
@@ -37,7 +38,8 @@ export default class ConfirmationCodeInput extends Component {
     space: 8,
     compareWithCode: '',
     ignoreCase: false,
-    keyboardType: 'phone-pad'
+    keyboardType: 'phone-pad',
+    testIDPrefix: 'confirmationCodeInput'
   };
   
   constructor(props) {
@@ -242,6 +244,7 @@ export default class ConfirmationCodeInput extends Component {
       size,
       activeColor,
       keyboardType,
+      testIDPrefix,
     } = this.props;
     
     const initialCodeInputStyle = {
@@ -273,6 +276,7 @@ export default class ConfirmationCodeInput extends Component {
           onChangeText={text => this._onInputCode(text, id)}
           onKeyPress={(e) => this._onKeyPress(e)}
           maxLength={1}
+          testID={`${testIDPrefix}${id}`}
         />
       )
     }
