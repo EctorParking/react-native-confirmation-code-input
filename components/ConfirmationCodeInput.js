@@ -269,6 +269,7 @@ export default class ConfirmationCodeInput extends Component {
           selectionColor={activeColor}
           keyboardType={keyboardType}
           returnKeyType={'done'}
+          testID={`${testIDPrefix}${id}`}
           {...this.props}
           autoFocus={autoFocus && id == 0}
           onFocus={() => this._onFocus(id)}
@@ -276,7 +277,6 @@ export default class ConfirmationCodeInput extends Component {
           onChangeText={text => this._onInputCode(text, id)}
           onKeyPress={(e) => this._onKeyPress(e)}
           maxLength={1}
-          testID={`${testIDPrefix}${id}`}
         />
       )
     }
